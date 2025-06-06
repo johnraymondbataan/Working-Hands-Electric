@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Hands Electric | Professional Electrical Services in Stone Mountain, GA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Koblenz Serial Heavy';
+            src: url('https://fonts.cdnfonts.com/css/koblenz-serial') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .business-font {
+            font-family: 'Koblenz Serial Heavy', sans-serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(10, 95, 255, 0.2);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .floating-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(10, 95, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(10, 95, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(10, 95, 255, 0);
+            }
+        }
+        .banner-slide-in {
+            animation: slideIn 0.5s forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#contact" class="block bg-blue-600 text-white rounded-full p-4 shadow-lg floating-btn flex items-center justify-center w-16 h-16">
+            <i class="fas fa-phone-alt text-xl"></i>
+        </a>
+    </div>
+
+    <!-- Navigation --> 
+    <nav class="bg-black text-white sticky top-0 z-40 shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <!-- Logo -->
+                    <img src="Image/logo.webp" alt="Working Hands Electric Logo" 
+                    class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full object-cover">
+                    
+                    <!-- Responsive company name -->
+                    <span class="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold" style="font-family: 'Bahnschrift', font-weight: 600;">
+                        <span class="hidden sm:inline">Working Hands Electric LLC.⚡</span>
+                        <span class="sm:hidden">Working Hands Electric LLC.⚡</span>
+                    </span>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center space-x-11">
+                    <a href="#home" class="text-white hover:text-blue-300 transition">Home</a>
+                    <a href="#services" class="text-white hover:text-blue-300 transition">Services</a>
+                    <a href="#gallery" class="text-white hover:text-blue-300 transition">Gallery</a>
+                    <a href="#about" class="text-white hover:text-blue-300 transition">About</a>
+                    <a href="#testimonials" class="text-white hover:text-blue-300 transition">Testimonials</a>
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300">Free Estimate</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black pb-4 px-4">
+            <a href="#home" class="block py-2 text-white hover:text-blue-300 transition">Home</a>
+            <a href="#services" class="block py-2 text-white hover:text-blue-300 transition">Services</a>
+            <a href="#gallery" class="block py-2 text-white hover:text-blue-300 transition">Gallery</a>
+            <a href="#about" class="block py-2 text-white hover:text-blue-300 transition">About</a>
+            <a href="#testimonials" class="block py-2 text-white hover:text-blue-300 transition">Testimonials</a>
+            <a href="#contact" class="block mt-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-center transition duration-300">Free Estimate</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="business-font text-4xl md:text-6xl lg:text-7xl mb-6 font-bold leading-tight">
+               </span>Hands-On Expertise<span class="inline-block">
+            </h1>
+            <h2 class="text-lg md:text-xl lg:text-2xl mb-6 font-medium opacity-90">Dedicated, Affordable, Customer Friendly</h2>
+            <p class="text-base md:text-lg lg:text-xl mb-8 max-w-2xl mx-auto font-serif opacity-80 leading-relaxed">We treat your home as if it was our own.</p>
+            <a href="#contact" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                Get Your Free Estimate
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-4 text-black">Our Electrical Services</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-600">Professional electrical solutions for residential and commercial needs in Stone Mountain, GA and surrounding areas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-home text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Residential Electrical Repairs</h3>
+                        <p class="text-gray-600 mb-4">Expert repairs for all your home electrical needs from outlets to complete rewiring.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Affordable pricing 💰</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>On-time scheduling ⏱️</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Respectful, clean, COVID-free team 🧼</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-building text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Commercial Electrical Services</h3>
+                        <p class="text-gray-600 mb-4">Complete electrical solutions for businesses, offices, and commercial properties.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Minimized business disruption</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>After-hours service available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Emergency response ⚡</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-bolt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Panel Upgrades</h3>
+                        <p class="text-gray-600 mb-4">Upgrade your electrical panel for improved safety and to support modern electrical demands.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>100-200 amp service upgrades</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Code compliant installations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Insurance documentation provided</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-lightbulb text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Lighting Installation & Fixtures</h3>
+                        <p class="text-gray-600 mb-4">Transform your space with professional lighting installations and upgrades.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Interior & exterior lighting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>LED retrofits for energy savings</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Smart lighting solutions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-car text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">EV Charger Installation</h3>
+                        <p class="text-gray-600 mb-4">Professional installation of electric vehicle charging stations for home and business.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Level 1 & Level 2 charger installation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Permitting assistance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Utility rebate guidance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-exclamation-triangle text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-center">Emergency Services <span class="text-xs bg-red-500 text-white px-2 py-1 rounded">24/7</span></h3>
+                        <p class="text-gray-600 mb-4">Available around the clock for urgent electrical issues that can't wait.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>No service call fee for active clients</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Rapid response time</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Diagnostic evaluation included</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-2 text-black">Our Work</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-600">Quality craftsmanship in every project we undertake</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Image 1 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://production-next-images-cdn.thumbtack.com/i/459749852188688400/width/1366.webp" 
+                         alt="Electrical panel installation" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://production-next-images-cdn.thumbtack.com/i/425744618648723477/width/1366.webp" 
+                         alt="Ceiling fan install, no wobble" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Electrical work in construction" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://production-next-images-cdn.thumbtack.com/i/425744592457588760/width/1366.webp" 
+                         alt="Lighting installation" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://production-next-images-cdn.thumbtack.com/i/459749840824705040/width/1366.webp" 
+                         alt="Panel Work" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://production-next-images-cdn.thumbtack.com/i/425744533141094403/width/1366.webp" 
+                         alt="Mount installation" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Residential electrical repair" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
+                    <img src="https://production-next-images-cdn.thumbtack.com/i/425744574927093762/width/1366.webp" 
+                         alt="Creating a new circuit for master bedroom" 
+                         class="w-full h-64 object-cover"
+                         onclick="openLightbox(this.src, this.alt)">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lightbox -->
+        <div id="lightbox">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="Image/logo.webp" 
+                         alt="Kevin Lane, Owner of Working Hands Electric"
+                         class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="business-font text-3xl md:text-4xl mb-6 text-black">About Our Company</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        At Working Hands Electric, we put heart and honesty into every job. Our team is respectful, professional, and treats every home like it's our own. We're proud to be COVID-conscious, clean, and loved by customers for our transparency. We don't fake it just to make it. We're real. And reliable.
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Founded by Kevin Lane, Working Hands Electric has grown from a one-person operation to a trusted team of licensed electricians serving the Stone Mountain area and beyond. Our commitment to quality, safety, and customer satisfaction sets us apart in the electrical services industry.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Free Online Estimates</h4>
+                                <p class="text-sm text-gray-600">No obligation, transparent pricing</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-percentage text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Discounts for Customers</h4>
+                                <p class="text-sm text-gray-600">New & returning customer specials</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-holding-usd text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Referral Bonuses</h4>
+                                <p class="text-sm text-gray-600">Cash offers for successful referrals</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Serving Stone Mountain</h4>
+                                <p class="text-sm text-gray-600">And surrounding Georgia areas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="mt-8 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-2">What Our Customers Say</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 text-blue-100">Don't just take our word for it - hear from our satisfied clients</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="testimonial-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
+                    <p class="font-semibold mb-3">Electrical and Wiring Repair</p>
+                    <div class="flex mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Awesome work and very nice. Nice price as well. Will always come to them for any electrical work!Awesome work and very nice. Nice price as well. Will always come to them for any electrical work!"</p>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">AM</div>
+                        <div>
+                            <h4 class="font-bold">Adam M.</h4>
+                            <p class="text-blue-200 text-sm">Stone Mountain, GA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
+                    <p class="font-semibold mb-3">Circuit Breaker Panel</p>
+                    <div class="flex mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Very knowledgeable and described what the issues were.Haven’t had any problems since.Very knowledgeable and described what the issues were and completed the job to my satisfaction."</p>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">JL</div>
+                        <div>
+                            <h4 class="font-bold">Jarrod L.</h4>
+                            <p class="text-blue-200 text-sm">Tucker, GA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
+                    <p class="font-semibold mb-3">Switch and Outlet Repair</p>
+                    <div class="flex mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Working Hands was great, he was able to diagnose and search for the problem quickly. Didn't overcharge when it turned out to be easier to fix than expected. Very professional and knowledgeable. "</p>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">EF</div>
+                        <div>
+                            <h4 class="font-bold">Evan F.</h4>
+                            <p class="text-blue-200 text-sm">Decatur, GA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
+                    <p class="font-semibold mb-3">Switch and Outlet Installation</p>
+                    <div class="flex mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Such great service and professionalism! Quality work and very responsive and punctual. Would definitely hire again and recommend! Excellent service at a fair price.I will definitely be using him again in the near future."</p>
+                    <div class="flex items-center">
+                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">TK</div>
+                        <div>
+                            <h4 class="font-bold">Thomas K.</h4>
+                            <p class="text-blue-200 text-sm">Lithonia, GA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-2 text-black">Contact Us</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-600">Want to schedule a repair or estimate? Let's talk!</p>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contactForm" class="space-y-6 bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 hover:border-blue-300 transition duration-300">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2 font-medium">Full Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 hover:border-gray-400">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2 font-medium">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 hover:border-gray-400">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2 font-medium">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 hover:border-gray-400">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2 font-medium">Message *</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 hover:border-gray-400 resize-vertical"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            <span class="flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                                Send Message
+                            </span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 bg-gray-50 p-8 rounded-lg border-2 border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 border border-blue-200">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Email Us</h4>
+                                <a href="mailto:kevinlane@workinghandselectricllc.com" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">kevinlane@workinghandselectricllc.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 border border-blue-200">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Call Us</h4>
+                                <a href="tel:+14703292678" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">(470) 329-2678</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 border border-blue-200">
+                                <i class="fas fa-clock text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Business Hours</h4>
+                                <p class="text-gray-700 leading-relaxed">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p class="text-gray-700 leading-relaxed">Saturday and Sunday: Closed (Emergencies Only)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 border border-blue-200">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Our Location</h4>
+                                <address class="not-italic text-gray-700 leading-relaxed">
+                                    5055 Memorial Dr Ste A 216,
+                                    Stone Mountain, GA 30083 
+                                    United States
+                                </address>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6 border-t border-gray-200">
+                            <h4 class="font-bold text-lg mb-3 text-gray-800">Emergency Service Available 24/7</h4>
+                            <a href="tel:+14703292678" class="inline-flex items-center bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                Call Now for Emergencies
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-24 h-24">
+                          <img src="Image/logo.webp" alt="Working Hands Electric Logo" class="object-contain w-full h-full" />
+                        </div>
+                        <div class="text-white text-lg leading-tight">
+                          <p> Working Hands Electric LLC ⚡</p>
+                        </div>
+                      </div>
+                    <p class="text-gray-400 mb-4">Professional electrical services for residential and commercial clients in Stone Mountain, GA and surrounding areas.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i>
+                            <span class="text-gray-400">5055 Memorial Dr Ste A 216, Stone Mountain, GA 30083</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-blue-500 mt-1 mr-3"></i>
+                            <a href="tel:+14703292678" class="text-gray-400 hover:text-white">(470) 329-2678</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-blue-500 mt-1 mr-3"></i>
+                            <a href="mailto:kevinlane@workinghandselectricllc.com" class="text-gray-400 hover:text-white">kevinlane@workinghandselectricllc.com</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Payment Methods</h4>
+                    <p class="text-gray-400 mb-3">We accept all major payment methods:</p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white text-black p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-visa text-2xl"></i>
+                        </div>
+                        <div class="bg-white text-black p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                        </div>
+                        <div class="bg-white text-black p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-amex text-2xl"></i>
+                        </div>
+                        <div class="bg-white text-black p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-cc-discover text-2xl"></i>
+                        </div>
+                        <div class="bg-white text-black p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-apple-pay text-2xl"></i>
+                        </div>
+                        <div class="bg-white text-black p-2 rounded flex items-center justify-center">
+                            <i class="fab fa-google-pay text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mt-4 text-sm">Also accepted: Cash, Check, Venmo, Square Cash</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Working Hands Electric LLC. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms & Conditions</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Licensing</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            // For demonstration, we'll just show an alert
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+
+        // Lightbox functionality
+        function openLightbox(src, alt) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = src;
+            lightboxImg.alt = alt;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Notification banner
+        setTimeout(() => {
+            const banner = document.getElementById('notification-banner');
+            banner.classList.remove('hidden');
+            banner.classList.add('banner-slide-in');
+        }, 2000);
+
+        function closeBanner() {
+            document.getElementById('notification-banner').classList.add('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Sticky navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
