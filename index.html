@@ -21,21 +21,167 @@
         .business-font {
             font-family: 'Koblenz Serial Heavy', sans-serif;
         }
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
         .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/736x/e7/14/bd/e714bdaf4f89d108a6af4627e8a61110.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            overflow: hidden;
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(10, 95, 255, 0.2);
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(0, 120, 255, 0.2) 25%, 
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 120, 255, 0.2) 75%,
+                rgba(255, 255, 255, 0.1) 100%);
+            background-size: 400% 400%;
+            z-index: 1;
+            animation: gradientFlow 15s ease infinite;
         }
-        .testimonial-card {
+        
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            animation: slowZoom 20s ease-in-out infinite;
+        }        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .hero-section {
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/736x/e7/14/bd/e714bdaf4f89d108a6af4627e8a61110.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(0, 120, 255, 0.2) 25%, 
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 120, 255, 0.2) 75%,
+                rgba(255, 255, 255, 0.1) 100%);
+            background-size: 400% 400%;
+            z-index: 1;
+            animation: gradientFlow 15s ease infinite;
+        }
+        
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            animation: slowZoom 20s ease-in-out infinite;
+        }
+                /* Enhanced Service Card Styles */
+                .service-card {
+            border: 2px solid #e5e7eb;
             transition: all 0.3s ease;
         }
-        .testimonial-card:hover {
-            transform: scale(1.02);
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: #3b82f6;
+            background-color: #f8fafc;
+        }
+        
+        .service-card:hover .w-16 {
+            background-color: #1e40af;
+        }
+        
+        .service-card:hover .w-16 i {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .service-card:hover h3 {
+            color: #1e40af;
         }
         #lightbox {
             display: none;
@@ -86,6 +232,50 @@
                 transform: translateY(0);
             }
         }
+
+                    <style>
+            .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+            }
+
+            .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0%;
+            background-color: #7dd3fc; /* Tailwind's blue-300 */
+            transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+            width: 100%;
+            }
+            </style>
+            <style>
+            .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+            }
+
+            .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0%;
+            background-color: #7dd3fc; /* Tailwind's blue-300 */
+            transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+            width: 100%;
+            }
+            </style>
+
     </style>
 </head>
 <body class="bg-gray-50">
@@ -107,7 +297,7 @@
                     class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full object-cover">
                     
                     <!-- Responsive company name -->
-                    <span class="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold" style="font-family: 'Bahnschrift', font-weight: 600;">
+                    <span class="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold" style="font-family: 'Bahnschrift', font-weight, 600;">
                         <span class="hidden sm:inline">Working Hands Electric LLC.⚡</span>
                         <span class="sm:hidden">Working Hands Electric LLC.⚡</span>
                     </span>
@@ -123,13 +313,14 @@
                 
                 <!-- Desktop menu -->
                 <div class="hidden md:flex items-center space-x-11">
-                    <a href="#home" class="text-white hover:text-blue-300 transition">Home</a>
-                    <a href="#services" class="text-white hover:text-blue-300 transition">Services</a>
-                    <a href="#gallery" class="text-white hover:text-blue-300 transition">Gallery</a>
-                    <a href="#about" class="text-white hover:text-blue-300 transition">About</a>
-                    <a href="#testimonials" class="text-white hover:text-blue-300 transition">Testimonials</a>
+                    <a href="#home" class="nav-link text-white hover:text-blue-300 transition">Home</a>
+                    <a href="#services" class="nav-link text-white hover:text-blue-300 transition">Services</a>
+                    <a href="#gallery" class="nav-link text-white hover:text-blue-300 transition">Gallery</a>
+                    <a href="#about" class="nav-link text-white hover:text-blue-300 transition">About</a>
+                    <a href="#testimonials" class="nav-link text-white hover:text-blue-300 transition">Testimonials</a>
                     <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300">Free Estimate</a>
-                </div>
+                  </div>
+                  
             </div>
         </div>
     
@@ -152,7 +343,7 @@
             </h1>
             <h2 class="text-lg md:text-xl lg:text-2xl mb-6 font-medium opacity-90">Dedicated, Affordable, Customer Friendly</h2>
             <p class="text-base md:text-lg lg:text-xl mb-8 max-w-2xl mx-auto font-serif opacity-80 leading-relaxed">We treat your home as if it was our own.</p>
-            <a href="#contact" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Get Your Free Estimate
             </a>
         </div>
@@ -161,9 +352,8 @@
     <!-- Services Section -->
     <section id="services" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="business-font text-3xl md:text-4xl text-center mb-4 text-black">Our Electrical Services</h2>
-            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-600">Professional electrical solutions for residential and commercial needs in Stone Mountain, GA and surrounding areas.</p>
-            
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-4 text-black font-bold">Our Electrical Services</h2>
+            <p class="text-center max-w-2xl mx-auto mb-10 text-gray-600">Professional electrical solutions for residential and commercial needs in Stone Mountain, GA and surrounding areas.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
@@ -321,9 +511,8 @@
     <!-- Gallery Section -->
     <section id="gallery" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="business-font text-3xl md:text-4xl text-center mb-2 text-black">Our Work</h2>
-            <p class="text-center max-w-2xl mx-auto mb-12 text-gray-600">Quality craftsmanship in every project we undertake</p>
-            
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-2 text-black font-bold">Our Work</h2>
+            <p class="text-center max-w-2xl mx-auto mb-8 text-gray-600">Quality craftsmanship in every project we undertake</p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Image 1 -->
                 <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer transform hover:scale-105 transition duration-300">
@@ -402,13 +591,13 @@
     <section id="about" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <div class="md:w-1/2 mb-6 sm:mb-8 md:mb-0 md:pr-8">
                     <img src="Image/logo.webp" 
                          alt="Kevin Lane, Owner of Working Hands Electric"
-                         class="rounded-lg shadow-xl w-full">
+                         class="shadow-xl w-full logo-animated transition-all duration-500 ease-in-out transform hover:scale-90 hover:rotate-3 hover:shadow-2xl hover:brightness-110 cursor-pointer">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="business-font text-3xl md:text-4xl mb-6 text-black">About Our Company</h2>
+                    <h2 class="business-font text-3xl md:text-4xl mb-6 text-black font-bold">About Our Company</h2>
                     <p class="text-gray-700 mb-6 leading-relaxed">
                         At Working Hands Electric, we put heart and honesty into every job. Our team is respectful, professional, and treats every home like it's our own. We're proud to be COVID-conscious, clean, and loved by customers for our transparency. We don't fake it just to make it. We're real. And reliable.
                     </p>
@@ -462,15 +651,15 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-blue-600 text-white">
+    <section id="testimonials" class="py-12 sm:py-16 bg-blue-600 text-white">
         <div class="container mx-auto px-4">
-            <h2 class="business-font text-3xl md:text-4xl text-center mb-2">What Our Customers Say</h2>
-            <p class="text-center max-w-2xl mx-auto mb-12 text-blue-100">Don't just take our word for it - hear from our satisfied clients</p>
+            <h2 class="business-font text-2xl sm:text-3xl md:text-4xl text-center mb-2 font-bold">What Our Customers Say</h2>
+            <p class="text-center max-w-2xl mx-auto mb-8 sm:mb-12 text-blue-100 text-sm sm:text-base px-4">Don't just take our word for it - hear from our satisfied clients</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="testimonial-container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="testimonial-container">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
-                    <p class="font-semibold mb-3">Electrical and Wiring Repair</p>
+                <div class="testimonial-card bg-blue-700 hover:bg-white rounded-lg shadow-lg p-4 sm:p-6 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl group">
+                    <p class="font-semibold mb-3 text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Electrical and Wiring Repair</p>
                     <div class="flex mb-4">
                         <div class="flex">
                             <i class="fas fa-star text-yellow-400"></i>
@@ -480,19 +669,19 @@
                             <i class="fas fa-star-half-alt text-yellow-400"></i>
                         </div>
                     </div>
-                    <p class="italic mb-4">"Awesome work and very nice. Nice price as well. Will always come to them for any electrical work!Awesome work and very nice. Nice price as well. Will always come to them for any electrical work!"</p>
+                    <p class="italic mb-4 text-white group-hover:text-gray-600 transition-colors duration-300 text-sm sm:text-base">"Awesome work and very nice. Nice price as well. Will always come to them for any electrical work!Awesome work and very nice. Nice price as well. Will always come to them for any electrical work!"</p>
                     <div class="flex items-center">
-                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">AM</div>
+                        <div class="bg-white group-hover:bg-blue-600 text-blue-600 group-hover:text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center font-bold mr-3 transition-all duration-300 text-sm sm:text-base">AM</div>
                         <div>
-                            <h4 class="font-bold">Adam M.</h4>
-                            <p class="text-blue-200 text-sm">Stone Mountain, GA</p>
+                            <h4 class="font-bold text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Adam M.</h4>
+                            <p class="text-blue-200 group-hover:text-gray-500 text-xs sm:text-sm transition-colors duration-300">Stone Mountain, GA</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
-                    <p class="font-semibold mb-3">Circuit Breaker Panel</p>
+                <div class="testimonial-card bg-blue-700 hover:bg-white rounded-lg shadow-lg p-4 sm:p-6 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl group">
+                    <p class="font-semibold mb-3 text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Circuit Breaker Panel</p>
                     <div class="flex mb-4">
                         <div class="flex">
                             <i class="fas fa-star text-yellow-400"></i>
@@ -502,19 +691,19 @@
                             <i class="fas fa-star text-yellow-400"></i>
                         </div>
                     </div>
-                    <p class="italic mb-4">"Very knowledgeable and described what the issues were.Haven’t had any problems since.Very knowledgeable and described what the issues were and completed the job to my satisfaction."</p>
+                    <p class="italic mb-4 text-white group-hover:text-gray-600 transition-colors duration-300 text-sm sm:text-base">"Very knowledgeable and described what the issues were.Haven't had any problems since.Very knowledgeable and described what the issues were and completed the job to my satisfaction."</p>
                     <div class="flex items-center">
-                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">JL</div>
+                        <div class="bg-white group-hover:bg-blue-600 text-blue-600 group-hover:text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center font-bold mr-3 transition-all duration-300 text-sm sm:text-base">JL</div>
                         <div>
-                            <h4 class="font-bold">Jarrod L.</h4>
-                            <p class="text-blue-200 text-sm">Tucker, GA</p>
+                            <h4 class="font-bold text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Jarrod L.</h4>
+                            <p class="text-blue-200 group-hover:text-gray-500 text-xs sm:text-sm transition-colors duration-300">Tucker, GA</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
-                    <p class="font-semibold mb-3">Switch and Outlet Repair</p>
+                <div class="testimonial-card bg-blue-700 hover:bg-white rounded-lg shadow-lg p-4 sm:p-6 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl group">
+                    <p class="font-semibold mb-3 text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Switch and Outlet Repair</p>
                     <div class="flex mb-4">
                         <div class="flex">
                             <i class="fas fa-star text-yellow-400"></i>
@@ -524,19 +713,19 @@
                             <i class="fas fa-star text-yellow-400"></i>
                         </div>
                     </div>
-                    <p class="italic mb-4">"Working Hands was great, he was able to diagnose and search for the problem quickly. Didn't overcharge when it turned out to be easier to fix than expected. Very professional and knowledgeable. "</p>
+                    <p class="italic mb-4 text-white group-hover:text-gray-600 transition-colors duration-300 text-sm sm:text-base">"Working Hands was great, he was able to diagnose and search for the problem quickly. Didn't overcharge when it turned out to be easier to fix than expected. Very professional and knowledgeable. "</p>
                     <div class="flex items-center">
-                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">EF</div>
+                        <div class="bg-white group-hover:bg-blue-600 text-blue-600 group-hover:text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center font-bold mr-3 transition-all duration-300 text-sm sm:text-base">EF</div>
                         <div>
-                            <h4 class="font-bold">Evan F.</h4>
-                            <p class="text-blue-200 text-sm">Decatur, GA</p>
+                            <h4 class="font-bold text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Evan F.</h4>
+                            <p class="text-blue-200 group-hover:text-gray-500 text-xs sm:text-sm transition-colors duration-300">Decatur, GA</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonial 4 -->
-                <div class="testimonial-card bg-blue-700 rounded-lg shadow-lg p-6">
-                    <p class="font-semibold mb-3">Switch and Outlet Installation</p>
+                <div class="testimonial-card bg-blue-700 hover:bg-white rounded-lg shadow-lg p-4 sm:p-6 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl group">
+                    <p class="font-semibold mb-3 text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Switch and Outlet Installation</p>
                     <div class="flex mb-4">
                         <div class="flex">
                             <i class="fas fa-star text-yellow-400"></i>
@@ -546,12 +735,12 @@
                             <i class="fas fa-star text-yellow-400"></i>
                         </div>
                     </div>
-                    <p class="italic mb-4">"Such great service and professionalism! Quality work and very responsive and punctual. Would definitely hire again and recommend! Excellent service at a fair price.I will definitely be using him again in the near future."</p>
+                    <p class="italic mb-4 text-white group-hover:text-gray-600 transition-colors duration-300 text-sm sm:text-base">"Such great service and professionalism! Quality work and very responsive and punctual. Would definitely hire again and recommend! Excellent service at a fair price.I will definitely be using him again in the near future."</p>
                     <div class="flex items-center">
-                        <div class="bg-white text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-3">TK</div>
+                        <div class="bg-white group-hover:bg-blue-600 text-blue-600 group-hover:text-white rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center font-bold mr-3 transition-all duration-300 text-sm sm:text-base">TK</div>
                         <div>
-                            <h4 class="font-bold">Thomas K.</h4>
-                            <p class="text-blue-200 text-sm">Lithonia, GA</p>
+                            <h4 class="font-bold text-white group-hover:text-gray-800 transition-colors duration-300 text-sm sm:text-base">Thomas K.</h4>
+                            <p class="text-blue-200 group-hover:text-gray-500 text-xs sm:text-sm transition-colors duration-300">Lithonia, GA</p>
                         </div>
                     </div>
                 </div>
@@ -562,7 +751,7 @@
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="business-font text-3xl md:text-4xl text-center mb-2 text-black">Contact Us</h2>
+            <h2 class="business-font text-3xl md:text-4xl text-center mb-2 text-black font-bold">Contact Us</h2>
             <p class="text-center max-w-2xl mx-auto mb-12 text-gray-600">Want to schedule a repair or estimate? Let's talk!</p>
             
             <div class="flex flex-col lg:flex-row gap-12">
@@ -677,16 +866,14 @@
                     <p class="text-gray-400 mb-4">Professional electrical services for residential and commercial clients in Stone Mountain, GA and surrounding areas.</p>
                     
                     <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="Twitter">
+                        
+                        <a href="https://x.com/hands_electric" class="text-white hover:text-blue-400 transition" aria-label="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="Instagram">
+                        <a href="https://www.instagram.com/electricworkinghands/" class="text-white hover:text-blue-400 transition" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-white hover:text-blue-400 transition" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/kevin-lane-68a36083/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app&fbclid=IwY2xjawKv969leHRuA2FlbQIxMABicmlkETE3emQ3QzYzZ1NYbzhNN3FLAR5WHgYC3C6IXigqozyvHb_Odh7KI50sqUcsTjJRFuSDp4Hq_bwBVb7ghoYMRg_aem_Gk6tNPn1xdT75w5cb3C4mw" class="text-white hover:text-blue-400 transition" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -708,7 +895,7 @@
                     <h4 class="text-lg font-bold mb-4">Contact Info</h4>
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i>
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i
                             <span class="text-gray-400">5055 Memorial Dr Ste A 216, Stone Mountain, GA 30083</span>
                         </li>
                         <li class="flex items-start">
@@ -750,12 +937,8 @@
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Working Hands Electric LLC. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms & Conditions</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Licensing</a>
-                </div>
+                <p class="text-gray-400 flex-center smb-4 md:mb-0">© 2023 Working Hands Electric LLC. All rights reserved.</p>
+                
             </div>
         </div>
     </footer>
